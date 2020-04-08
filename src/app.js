@@ -49,9 +49,9 @@ app.put("/repositories/:id", validateID, (req, res) => {
 
   const newRepository = {
     ...repositories[repositoryIndex],
-    title,
-    url,
-    techs,
+    title: title ? title : repositories[repositoryIndex].title,
+    url: url ? url : repositories[repositoryIndex].url,
+    techs: techs ? techs : repositories[repositoryIndex].techs,
   };
 
   repositories[repositoryIndex] = newRepository;
